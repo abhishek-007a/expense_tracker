@@ -1,1 +1,1 @@
-# expense_tracker java project
+# Expense_Tracker JAVA project

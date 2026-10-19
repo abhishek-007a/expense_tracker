@@ -26,7 +26,7 @@ const apiFetch = (endpoint, options = {}) => {
             ...options.headers,
         }
     };
-    return fetch(`http://localhost:8080/api${endpoint}`, mergedOptions);
+    return fetch('https://expense-tracker-backend-wdlt.onrender.com/api${endpoint}', mergedOptions);
 };
 
 // Global variables to hold references for edit submit functions
@@ -1863,7 +1863,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // These variables are guaranteed to exist, as they are part of the base form
             const email = emailInput ? emailInput.value.trim() : '';
             const password = passwordInput ? passwordInput.value.trim() : '';
-            const apiBaseUrl = 'http://localhost:8080/api';
+            const apiBaseUrl = 'https://expense-tracker-backend-wdlt.onrender.com/api';
 
             if (email === '' || password === '') {
                 displayMessage("Please enter both email and password.", 'error');

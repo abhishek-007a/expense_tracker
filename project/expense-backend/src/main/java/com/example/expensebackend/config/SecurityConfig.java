@@ -1,17 +1,17 @@
 package com.example.expensebackend.config;
 
 import com.example.expensebackend.service.AuthService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -52,22 +52,24 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Allow the Vercel frontend and its deployment-specific URLs.
-        configuration.setAllowedOriginPatterns(Arrays.asList(
-            "https://expensetracker-expense-frontend*.vercel.app"
+        configuration.setAllowedOrigins(Arrays.asList(
+                "https://expensetracker-expense-frontend-lx6bryxhm.vercel.app",
+                "https://expense-tracker-expense-frontend.vercel.app",
+                "http://localhost:63342"
         ));
 
         configuration.setAllowedMethods(Arrays.asList(
-            "GET", "POST", "PUT", "DELETE", "OPTIONS"
+                "GET", "POST", "PUT", "DELETE", "OPTIONS"
         ));
 
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source =
-            new UrlBasedCorsConfigurationSource();
+                new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/api/", configuration);
+        // Apply CORS rules to every API endpoint.
+        source.registerCorsConfiguration("/", configuration);
 
         return source;
     }

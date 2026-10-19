@@ -69,7 +69,7 @@ public class SecurityConfig {
                 new UrlBasedCorsConfigurationSource();
 
         // Apply CORS rules to all paths.
-        source.registerCorsConfiguration("/", configuration);
+        source.registerCorsConfiguration("/**", configuration);
 
         return source;
     }
@@ -91,7 +91,7 @@ public class SecurityConfig {
                 .permitAll()
             )
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers(HttpMethod.OPTIONS, "/").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/register", "/api/login").permitAll()
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll()

@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -53,11 +52,11 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList(
-        "https://expensetracker-expense-frontend-lx6bryxhm.vercel.app",
-        "https://expense-tracker-expense-frontend.vercel.app",
-        "https://expense-tracker-5aj7.onrender.com",
-         "http://localhost:63342"
-         ));
+                "https://expensetracker-expense-frontend-lx6bryxhm.vercel.app",
+                "https://expense-tracker-expense-frontend.vercel.app",
+                "https://expense-tracker-5aj7.onrender.com",
+                "http://localhost:63342"
+        ));
 
         configuration.setAllowedMethods(Arrays.asList(
                 "GET", "POST", "PUT", "DELETE", "OPTIONS"
@@ -69,7 +68,7 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        // Apply CORS rules to every API endpoint.
+        // Apply CORS rules to all paths.
         source.registerCorsConfiguration("/", configuration);
 
         return source;

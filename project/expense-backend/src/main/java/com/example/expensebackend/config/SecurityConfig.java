@@ -54,8 +54,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList(
-            "https://expensetracker-expense-frontend.vercel.app"
-        ));
+    "https://expensetracker-expense-frontend.vercel.app"
+));
 
         configuration.setAllowedMethods(Arrays.asList(
             "GET", "POST", "PUT", "DELETE", "OPTIONS"

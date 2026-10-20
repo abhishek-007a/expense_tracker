@@ -48,35 +48,30 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
+public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(Arrays.asList(
-                "https://expensetracker-expense-frontend-lx6bryxhm.vercel.app",
-                "https://expense-tracker-expense-frontend.vercel.app",
-                "https://expense-tracker-5aj7.onrender.com",
-                "http://localhost:63342"
-        ));
+    configuration.setAllowedOrigins(
+        Arrays.asList("https://expense-tracker-5aj7.onrender.com")
+    );
 
-        configuration.setAllowedMethods(Arrays.asList(
-                "GET", "POST", "PUT", "DELETE", "OPTIONS"
-        ));
+    configuration.setAllowedMethods(
+        Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")
+    );
 
-        configuration.setAllowedHeaders(Arrays.asList(
-    "Content-Type",
-    "Authorization",
-    "X-Requested-With"
-));
-        configuration.setAllowCredentials(true);
+    configuration.setAllowedHeaders(
+        Arrays.asList("Content-Type", "Authorization", "X-Requested-With")
+    );
 
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
+    configuration.setAllowCredentials(true);
 
-        // Apply CORS rules to all paths.
-        source.registerCorsConfiguration("/**", configuration);
+    UrlBasedCorsConfigurationSource source =
+        new UrlBasedCorsConfigurationSource();
 
-        return source;
-    }
+    source.registerCorsConfiguration("/**", configuration);
+
+    return source;
+}
 
     @Bean
      public SecurityFilterChain filterChain(HttpSecurity http)

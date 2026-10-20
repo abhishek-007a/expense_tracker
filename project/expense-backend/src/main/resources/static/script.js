@@ -1959,8 +1959,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         displayMessage(`Invalid email or password.`, 'error');
                     }
                 } catch (error) {
-                    displayMessage('Sign in failed. Server may be down.', 'error');
-                }
+    console.error('Signup request failed:', error);
+    displayMessage(
+        'Cannot connect to the server. Check the browser console for details.',
+        'error'
+    );
+}
             }
         });
 

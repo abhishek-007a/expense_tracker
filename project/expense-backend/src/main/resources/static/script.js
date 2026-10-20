@@ -1864,7 +1864,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // These variables are guaranteed to exist, as they are part of the base form
             const email = emailInput ? emailInput.value.trim() : '';
             const password = passwordInput ? passwordInput.value.trim() : '';
-            const apiBaseUrl = 'https://expense-tracker-backend-wdlt.onrender.com/api';
+            const apiBaseUrl = 'https://expense-tracker-5aj7.onrender.com/api';
 
             if (email === '' || password === '') {
                 displayMessage("Please enter both email and password.", 'error');

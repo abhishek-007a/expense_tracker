@@ -26,8 +26,7 @@ const apiFetch = (endpoint, options = {}) => {
             ...options.headers,
         }
     };
-    
-return fetch(`https://expense-tracker-backend-wdlt.onrender.com/api${endpoint}`, mergedOptions);
+    return fetch(`https://expense-tracker-5aj7.onrender.com/api${endpoint}`, mergedOptions);
 };
 
 // Global variables to hold references for edit submit functions

@@ -59,9 +59,7 @@ public CorsConfigurationSource corsConfigurationSource() {
         Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")
     );
 
-    configuration.setAllowedHeaders(
-        Arrays.asList("Content-Type", "Authorization", "X-Requested-With")
-    );
+    configuration.setAllowedHeaders(Arrays.asList("*"));
 
     configuration.setAllowCredentials(true);
 

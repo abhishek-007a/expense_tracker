@@ -1,4 +1,3 @@
-```java
 package com.example.expensebackend.repository;
 
 import com.example.expensebackend.model.Transaction;
@@ -174,4 +173,3 @@ public class TransactionRepository {
                 .update();
     }
 }
-```
